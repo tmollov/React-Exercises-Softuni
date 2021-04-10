@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Footer from './components/Footer';
 import ContactList from './components/ContactList'
 import ContactDetails from './components/contact_details/ContactDetails';
 
 import contactsJson from './contacts.json';
+import './App.css';
 
 
 export default class App extends Component {
