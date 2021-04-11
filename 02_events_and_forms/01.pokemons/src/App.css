@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.inputDiv {
+  margin:10px 0px;
+}
+
+.inputDiv p {
+  padding: 0;
+  margin: 0;
+}
+
+.input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px 5px 10px 5px;
+}
+
+.submitButton {
+  border-radius: 5%;
+  border: 1px solid gray;
+}
+
+.submitButton:hover {
+  cursor: pointer;
+}
