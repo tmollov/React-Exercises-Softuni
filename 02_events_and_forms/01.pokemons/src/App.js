@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Dashboard from "./components/dashboard";
-import Guest from "./components/guest";
+import Dashboard from "./components/home/dashboard";
+import Guest from "./components/home/guest";
 
 import './App.css';
 
@@ -11,10 +11,6 @@ class App extends Component {
         this.state = {isLogged: false}
     }
 
-    setUserLoggedIn = () => {
-        this.setState({isLogged:true})
-    }
-
     getDashboard = () => {
         if (this.state.isLogged) {
             return <Dashboard></Dashboard>
@@ -23,12 +19,16 @@ class App extends Component {
         }
     }
 
+    setUserLoggedIn = () => {
+        this.setState({isLogged: true});
+    }
+
     componentDidMount() {
-        if (localStorage.getItem("jwt")){
-            this.setState({isLogged:true})
+        if (localStorage.getItem("jwt")) {
+            this.setState({isLogged: true})
             return;
         }
-        this.setState({isLogged:false})
+        this.setState({isLogged: false})
     }
 
     render() {
