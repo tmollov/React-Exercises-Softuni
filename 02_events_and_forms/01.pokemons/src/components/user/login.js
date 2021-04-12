@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
 import f from "../../fetcher";
+
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            isAuthRight: true
+        }
+        this.msg ={
+            invalid:"Invalid credentials!"
         }
     }
 
-    handleLoginButton = (event) => {
+    handleSubmitButton = (event) => {
         if (event.target.parentElement.checkValidity()) {
             event.preventDefault();
-            console.log(this.state)
             f.post(f.endpoints.login,this.state,(res) =>{
+                if (typeof res === "string") {
+                    this.setState({isAuthRight:false});
+                    return;
+                }
                 localStorage.setItem("jwt",res.accessToken)
                 this.props.setUser();
             })
@@ -26,10 +34,14 @@ class Login extends Component {
         this.setState({[name]:value})
     }
 
+    showMessage = (target, message) => {
+        return target === false ?
+            <div><p className="errorP">{message}</p></div> : ""
+    }
+
     render() {
         return (
             <form>
-                <h3>Login</h3>
                 <div className="inputDiv">
                     <p>Email</p>
                     <input className="input"
@@ -51,10 +63,13 @@ class Login extends Component {
                            onChange={this.handleOnInputChange}/>
                 </div>
 
+                {this.showMessage(this.state.isAuthRight,
+                    this.msg.invalid)}
+
                 <input className="submitButton"
                        type="submit"
                        value="Log in"
-                       onClick={this.handleLoginButton}/>
+                       onClick={this.handleSubmitButton}/>
             </form>
         )
     }
