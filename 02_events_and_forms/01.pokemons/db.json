@@ -1,30 +1,26 @@
 {
-  "posts": [
+  "pokemons": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": 25,
+      "pokemonName": "Pikachu",
+      "pokemonImg": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+      "pokemonInfo": "Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy."
     },
     {
-      "id": 2,
-      "title": "test",
-      "author": "mollov"
+      "id": 18,
+      "pokemonName": "Pidgeot",
+      "pokemonImg": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png",
+      "pokemonInfo": "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons."
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
+  "nicknames": [
+    "tmollov"
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$sgc5Fzt1gxtkc8ZbU9gkYe5DLKd64LyJ/i88AIO0z2heI5LNYI6ra",
+      "email": "graculapsone1998@gmail.com",
+      "password": "$2a$10$dHCUwzsIX2WOu7KXNwxISOiZSaiENuVUvBULLienoEcCV5dkZwiRK",
+      "nickname": "tmollov",
       "id": 1
     }
   ]
