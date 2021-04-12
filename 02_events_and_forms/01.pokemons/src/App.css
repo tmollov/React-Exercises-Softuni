@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+form {
+  font-size: 26px;
+  margin: 30px;
+}
+
+
 .inputDiv {
   margin:10px 0px;
 }
@@ -20,8 +26,51 @@
 .submitButton {
   border-radius: 5%;
   border: 1px solid gray;
+  font-size: 26px;
 }
 
 .submitButton:hover {
   cursor: pointer;
+}
+
+.toggleButtons {
+  font-size: 30px;
+}
+
+.toggleButtons button {
+  border: 0;
+  background: none;
+  font-size: 30px;
+  outline-style: none;
+}
+
+.toggleButtons button:hover {
+  background-color: gray;
+  color: white;
+  cursor: pointer;
+}
+
+.border_bottom {
+  border-bottom: 1px solid black;
+}
+
+.errorP {
+  color: red;
+}
+
+.pokemons {
+  display: flex;
+  margin: 0px 10px;
+}
+
+.pokemonCard {
+  width: 200px;
+  border: 3px solid #d04f07;
+  margin: 0px 5px;
+}
+
+.pokemonCard img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
 }
