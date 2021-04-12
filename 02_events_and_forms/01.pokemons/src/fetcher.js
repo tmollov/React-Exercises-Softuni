@@ -3,12 +3,17 @@ const BASE_URL = 'http://localhost:3004';
 const fetcher = {
     endpoints: {
         login: "/login",
+        register: "/register",
+        nicknames: "/nicknames",
+        pokemons: "/pokemons"
     },
     get: (endpoint, callback) =>
         fetch(BASE_URL + endpoint)
             .then(data => data.json())
             .then(callback)
-            .catch(console.log),
+            .catch((err)=>{
+                //console.log(err)
+            }),
 
     post: (endpoint, data, callback) => {
         let request = {
@@ -19,7 +24,7 @@ const fetcher = {
             },
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         }
-        return fetch(BASE_URL + endpoint, request,callback)
+        return fetch(BASE_URL + endpoint, request, callback)
             .then(data => data.json())
             .then(callback)
             .catch(console.log);
