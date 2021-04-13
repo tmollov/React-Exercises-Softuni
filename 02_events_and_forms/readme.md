@@ -18,6 +18,8 @@ This folder contains all solved exercises from [``Events and Forms``](https://so
 
 ## Preview images
 
+```NOTE:``` Don't be confused from ``tasks`` file about app. I redesigned it a little bit. *#juniordesigner*
+
 ### Login
 
 ![preview](https://raw.githubusercontent.com/tmollov/React-Exercises-Softuni/main/02_events_and_forms/_preview/guest_login.png)
