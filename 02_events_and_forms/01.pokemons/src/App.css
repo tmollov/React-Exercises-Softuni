@@ -1,156 +1,183 @@
 .App {
-	text-align: center;
+    text-align: center;
+    background-color: rgba(255, 87, 20, 0.93);
+    color: #fff;
+}
+
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 form {
-	font-size: 2rem;
-	margin: 30px;
+    font-size: 2rem;
+    padding: 3rem;
 }
 
 input {
-	font-size: 1rem;
+    font-size: 1rem;
+}
+
+.home {
+    margin: 2rem;
+}
+
+.guest {
+    padding: 1em;
+    margin: 2rem;
 }
 
 .menubar {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menubar button {
-	margin: 0rem 0rem 0rem 5rem;
-	font-size: 1.2rem;
-	border: none;
-	background-color: white;
-	outline-style: none;
+    margin: 0rem 0rem 0rem 5rem;
+    font-size: 1.2rem;
+    border: none;
+    background-color: white;
+    outline-style: none;
 }
 
 .menubar button:hover {
-	cursor: pointer;
-	background-color: black;
-	color: white;
-	border-radius: 15px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
 }
 
 .inputDiv {
-	margin: 10px 0px;
+    margin: 10px 0px;
 }
 
 .inputDiv p {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .input {
-	border: 1px solid black;
-	border-radius: 5px;
-	padding: 10px 5px 10px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 5px 10px 5px;
 }
 
 .submitButton {
-	border-radius: 5%;
-	border: 1px solid gray;
-	font-size: 26px;
+    border-radius: 5%;
+    border: 1px solid gray;
+    font-size: 26px;
 }
 
 .submitButton:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .toggleButtons {
-	font-size: 30px;
+    font-size: 30px;
 }
 
 .toggleButtons button {
-	border: 0;
-	background: none;
-	font-size: 30px;
-	outline-style: none;
+    border: 0;
+    background: none;
+    font-size: 30px;
+    outline-style: none;
+    color: white;
 }
 
 .toggleButtons button:hover {
-	background-color: gray;
-	color: white;
-	cursor: pointer;
+    background-color: black;
+    color: white;
+    cursor: pointer;
 }
 
 .border_bottom {
-	border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .errorP {
-	color: red;
+    color: red;
 }
 
-pokemons {
-	display: flex;
-	margin: 0px 10px;
-	flex-wrap: wrap;
-	width: 100%;
+.pokemons {
+    display: flex;
+    margin: 0px 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    vertical-align: center;
 }
 
 .pokemonList {
-	display: flex;
-	overflow: auto;
+    display: inline-flex;
+    overflow: auto;
+    width: 88%;
 }
 
 .pokemonCard {
-	width: 200px;
-	border: 3px solid #d04f07;
-	margin: 0px 5px;
+    width: 10em;
+    border: 3px solid white;
+    margin: 0px 5px;
 }
 
 .pokemonCard img {
-	width: 150px;
-	height: 150px;
-	margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
 }
 
 .pokemonCard:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .selectedCard {
-	display: flex;
-	justify-content: center;
-	margin: 3em;
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+    padding: 2em;
 }
 
-.selectedCard>img {
-	display: inline-block;
-	width: 20rem;
-	height: 20rem;
-	border-right: 2px solid gray;
-	margin-right: 1em;
+.selectedCard > img {
+    display: inline-block;
+    width: 20rem;
+    height: 20rem;
+    border-right: 2px solid white;
+    margin-right: 1em;
 }
 
 .pokemonInfo {
-	display: inline-block;
-	vertical-align: center;
+    display: inline-block;
+    vertical-align: center;
 }
 
 .pokemonInfo p {
-	width: 15rem;
-	text-align: justify;
+    width: 15rem;
+    text-align: justify;
 }
 
 .noPokemons {
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
 .addCard {
-	width: 200px;
-	margin: 0px 5px;
-	flex-direction: column;
-	vertical-align: center;
-	horiz-align: center;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.addCard div {
+    width: 200px;
+    margin: 0px 5px;
+    flex-direction: column;
+    vertical-align: center;
+    horiz-align: center;
 }
 
 .addCard img {
-	width: 120px;
-	margin: 10px auto;
+    width: 120px;
+    margin: 10px auto;
 }
 
 .addCard:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
