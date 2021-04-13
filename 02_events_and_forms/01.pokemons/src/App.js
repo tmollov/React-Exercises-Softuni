@@ -7,13 +7,12 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-
         this.state = {isLogged: false}
     }
 
     getDashboard = () => {
         if (this.state.isLogged) {
-            return <Dashboard></Dashboard>
+            return <Dashboard showAdd={this.showAdd}></Dashboard>
         } else {
             return <Guest setUser={this.setUserLoggedIn}></Guest>
         }
