@@ -12,7 +12,16 @@ class App extends Component {
 
     getDashboard = () => {
         if (this.state.isLogged) {
-            return <Dashboard showAdd={this.showAdd}></Dashboard>
+            return (
+                <div>
+                    <div className="menubar">
+                        <h1>Hello to pokemon world!</h1>
+                        <button onClick={this.logOut}><u>Log out</u></button>
+                    </div>
+                    <Dashboard showAdd={this.showAdd}></Dashboard>
+                </div>
+            )
+
         } else {
             return <Guest setUser={this.setUserLoggedIn}></Guest>
         }
@@ -28,6 +37,12 @@ class App extends Component {
             return;
         }
         this.setState({isLogged: false})
+    }
+
+
+    logOut = () => {
+        localStorage.clear();
+        this.setState({isLogged:false})
     }
 
     render() {

@@ -3,7 +3,6 @@ import List from "../pokemon/list";
 import f from "../../fetcher";
 import Detail from "../pokemon/detail";
 import AddPokemonForm from "../addPokemonForm";
-import fetcher from "../../fetcher";
 
 class Dashboard extends Component {
     constructor(props) {
@@ -62,8 +61,6 @@ class Dashboard extends Component {
     render = () => {
         return (
             <div className="dashboard">
-                <h1>Hello to pokemon world!</h1>
-
                 <List pokemons={this.state.pokemons}
                       selectedCard={this.setCard}
                       showAdd={this.toggleAdd}
