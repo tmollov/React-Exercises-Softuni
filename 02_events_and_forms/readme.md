@@ -11,7 +11,7 @@ This folder contains all solved exercises from [``Events and Forms``](https://so
 3. Type ``npm install`` to installation dependencies
 4. You will need to install [json-server-auth](https://www.npmjs.com/package/json-server-auth) by typing: ``npm install -D json-server json-server-auth``
 5. Run ``json-server-auth`` by typing: ``json-server-auth db.json --port 3004``
-6. Start app with: ``npm start``
+6. Open another terminal at same directory and type ``npm start`` to start the app.
 7. Check [check your localhost](http://localhost:3000/) (you can see url of app from the terminal too)
 
 ```NOTE:``` Be sure to have installed [NodeJS](https://nodejs.org/) !!
