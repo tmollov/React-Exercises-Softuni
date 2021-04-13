@@ -25,21 +25,16 @@ class Guest extends Component {
     }
 
     toggleTitles = (title) => {
-        if (title === "Login") {
-            return this.state.toggle ? title : `- ${title} -`
-        } else {
-            return this.state.toggle ? `- ${title} -` : title
-        }
+        let r = "Click to switch Login / Register"
+        return this.state.toggle ? r : r
     }
 
     render() {
         return (
-            <div>
+            <div className="guest">
                 <h1> Welcome to Pokemons!</h1>
                 <div className="toggleButtons">
                     <button onClick={this.changeState}>{this.toggleTitles("Login")}</button>
-                    <span>|</span>
-                    <button onClick={this.changeState}>{this.toggleTitles("Register")}</button>
                 </div>
                 {this.toggleContent()}
             </div>

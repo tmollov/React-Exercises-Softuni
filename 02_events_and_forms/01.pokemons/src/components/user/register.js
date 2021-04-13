@@ -99,6 +99,7 @@ class Register extends Component {
     render() {
         return (
             <form>
+                <p>Register:</p>
                 <div className="inputDiv">
                     <p>Nickname</p>
                     <input className="input"

@@ -42,6 +42,7 @@ class Login extends Component {
     render() {
         return (
             <form>
+                <p>Login:</p>
                 <div className="inputDiv">
                     <p>Email</p>
                     <input className="input"

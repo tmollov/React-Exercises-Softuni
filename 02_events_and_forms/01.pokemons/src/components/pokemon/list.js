@@ -25,8 +25,8 @@ class List extends Component {
     render() {
         return (
             <section className="pokemons">
+                <Add showAdd={this.props.showAdd} title={this.props.addButtonTitle}/>
                 <div className="pokemonList">
-                    <Add showAdd={this.props.showAdd} title={this.props.addButtonTitle}/>
                     {this.generateCards()}
                 </div>
             </section>
