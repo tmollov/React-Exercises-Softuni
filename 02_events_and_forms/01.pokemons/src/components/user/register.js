@@ -62,7 +62,7 @@ class Register extends Component {
         this.setState({[name]: value})
 
         let arr = this.state.nicknames;
-        if (arr.some(x=>x === this.state.nickname)){
+        if (arr.some(x=>x === value)){
             this.setState({isNicknameAvail:false})
         } else {
             this.setState({isNicknameAvail:true})
