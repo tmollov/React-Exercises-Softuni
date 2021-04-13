@@ -13,7 +13,7 @@ class App extends Component {
     getDashboard = () => {
         if (this.state.isLogged) {
             return (
-                <div>
+                <div className="home">
                     <div className="menubar">
                         <h1>Hello to pokemon world!</h1>
                         <button onClick={this.logOut}><u>Log out</u></button>
