@@ -1,16 +1,18 @@
 {
   "pokemons": [
     {
-      "id": 25,
-      "pokemonName": "Pikachu",
-      "pokemonImg": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
-      "pokemonInfo": "Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy."
+      "id": 1,
+      "number": 1,
+      "name": "Bulbasaur",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+      "bio": "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger."
     },
     {
-      "id": 18,
-      "pokemonName": "Pidgeot",
-      "pokemonImg": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png",
-      "pokemonInfo": "This Pokémon flies at Mach 2 speed, seeking prey. Its large talons are feared as wicked weapons."
+      "id": 2,
+      "number": 2,
+      "name": "Ivysaur",
+      "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
+      "bio": "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs."
     }
   ],
   "nicknames": [
