@@ -1,76 +1,109 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 form {
-  font-size: 26px;
-  margin: 30px;
+    font-size: 26px;
+    margin: 30px;
 }
 
 
 .inputDiv {
-  margin:10px 0px;
+    margin: 10px 0px;
 }
 
 .inputDiv p {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .input {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px 5px 10px 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 5px 10px 5px;
 }
 
 .submitButton {
-  border-radius: 5%;
-  border: 1px solid gray;
-  font-size: 26px;
+    border-radius: 5%;
+    border: 1px solid gray;
+    font-size: 26px;
 }
 
 .submitButton:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .toggleButtons {
-  font-size: 30px;
+    font-size: 30px;
 }
 
 .toggleButtons button {
-  border: 0;
-  background: none;
-  font-size: 30px;
-  outline-style: none;
+    border: 0;
+    background: none;
+    font-size: 30px;
+    outline-style: none;
 }
 
 .toggleButtons button:hover {
-  background-color: gray;
-  color: white;
-  cursor: pointer;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
 }
 
 .border_bottom {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .errorP {
-  color: red;
+    color: red;
 }
 
 .pokemons {
-  display: flex;
-  margin: 0px 10px;
+    display: flex;
+    margin: 0px 10px;
+    overflow: auto;
 }
 
 .pokemonCard {
-  width: 200px;
-  border: 3px solid #d04f07;
-  margin: 0px 5px;
+    width: 200px;
+    border: 3px solid #d04f07;
+    margin: 0px 5px;
 }
 
 .pokemonCard img {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.pokemonCard:hover {
+    cursor: pointer;
+}
+
+.selectedCard {
+    display: flex;
+    justify-content: center;
+    margin: 3em;
+}
+
+.selectedCard > img {
+    display: inline-block;
+    width: 20rem;
+    height: 20rem;
+    border-right: 2px solid gray;
+    margin-right: 1em;
+}
+
+.pokemonInfo {
+    display: inline-block;
+    vertical-align: center;
+}
+
+.pokemonInfo p {
+    width: 15rem;
+    text-align: justify;
+}
+
+.noPokemons {
+    margin: 0 auto;
 }
