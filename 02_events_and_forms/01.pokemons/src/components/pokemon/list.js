@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Card from "./card";
+import Add from "../add";
 
 class List extends Component {
     generateCards = () => {
@@ -10,7 +11,6 @@ class List extends Component {
                 cards.push(
                     <Card key={i}
                           index={i}
-                          number={p.number}
                           name={p.name}
                           imageUrl={p.image}
                           showCard={this.props.selectedCard}/>
@@ -20,13 +20,15 @@ class List extends Component {
         } else {
             return <div className="noPokemons"> No Pokemons !</div>
         }
-
     }
 
     render() {
         return (
             <section className="pokemons">
-                {this.generateCards()}
+                <div className="pokemonList">
+                    <Add showAdd={this.props.showAdd} title={this.props.addButtonTitle}/>
+                    {this.generateCards()}
+                </div>
             </section>
         );
     }

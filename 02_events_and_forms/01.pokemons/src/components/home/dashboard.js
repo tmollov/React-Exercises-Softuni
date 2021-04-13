@@ -1,25 +1,75 @@
 import React, {Component} from 'react';
-import Card from "../pokemon/card";
+import List from "../pokemon/list";
+import f from "../../fetcher";
+import Detail from "../pokemon/detail";
+import AddPokemonForm from "../addPokemonForm";
+import fetcher from "../../fetcher";
 
 class Dashboard extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pokemons: [],
+            selected: 0,
+            isAddToggled: false,
+            addButtonTitle: "Add Pokemon"
+        }
+    }
+
+    componentDidMount = () => {
+        this.fetchData();
+    }
+
+    fetchData = () => {
+        f.get(f.endpoints.pokemons, (res) => {
+            this.setState((prev,props) => {
+                return {
+                    pokemons:res
+                }
+            })
+        })
+    }
+
+    setCard = (event) => {
+        let target = Number(event.currentTarget.getAttribute("data-id"));
+        this.setState({selected: target});
+    }
+
+    toggleAdd = () => {
+        this.setState({isAddToggled: !this.state.isAddToggled})
+        !this.state.isAddToggled ?
+            this.setState({addButtonTitle: "Back to selected"}) :
+            this.setState({addButtonTitle: "Add Pokemon"})
+    }
+
+    showContent = () => {
+        if (this.state.isAddToggled) {
+            return <AddPokemonForm toggle={this.toggleAdd} refresh={this.refresh}/>
+        } else {
+            if (this.state.pokemons.length > 0) {
+                let p = this.state.pokemons[this.state.selected]
+                return <Detail number={p.id}
+                               name={p.name}
+                               imageUrl={p.image}
+                               bio={p.bio}/>
+            }
+        }
+    }
+
+    refresh = () => {
+        this.fetchData();
+    }
+    render = () => {
         return (
             <div className="dashboard">
                 <h1>Hello to pokemon world!</h1>
-                <section className="pokemons">
-                    <Card id={25}
-                    name={"Pikachu"}
-                    imageUrl={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}/>
-                    <Card id={25}
-                    name={"Pikachu"}
-                    imageUrl={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}/>
-                    <Card id={25}
-                    name={"Pikachu"}
-                    imageUrl={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}/>
-                    <Card id={25}
-                    name={"Pikachu"}
-                    imageUrl={"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"}/>
-                </section>
+
+                <List pokemons={this.state.pokemons}
+                      selectedCard={this.setCard}
+                      showAdd={this.toggleAdd}
+                      addButtonTitle={this.state.addButtonTitle}
+                      />
+                {this.showContent()}
             </div>
         );
     }
