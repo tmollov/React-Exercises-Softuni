@@ -1,0 +1,16 @@
+{
+  "posts": [],
+  "nicknames": [],
+  "users": [
+    {
+      "password": "$2a$10$dHCUwzsIX2WOu7KXNwxISOiZSaiENuVUvBULLienoEcCV5dkZwiRK",
+      "email": "tmollov@mail.com",
+      "id": 1
+    },
+    {
+      "email": "graculapsone1998@gmail.com",
+      "password": "$2a$10$jnlGYL0Y5oUA/kuU/ErOAeWhPCaq7Le2iSuMGm0oK8NOUzNOBMgpG",
+      "id": 2
+    }
+  ]
+}

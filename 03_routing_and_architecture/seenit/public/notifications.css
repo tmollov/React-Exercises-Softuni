@@ -1,0 +1,31 @@
+#notifications {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.notification {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.notification>span {
+    display: inline-block;
+    padding:  0.5em 2em 0.5em 2em;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+#loading>span {
+    background: #7CB3E9;
+}
+#info>span {
+    background: #393;
+}
+#error>span {
+    background: #F50;
+}
