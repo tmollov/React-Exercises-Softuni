@@ -1,6 +1,7 @@
 const constants = {
     loading: "Loading...",
-    logout: "Logged out!"
+    logout: "Logged out!",
+    passwords_not_match: "Passwords doesn't match"
 }
 
 const types = {
