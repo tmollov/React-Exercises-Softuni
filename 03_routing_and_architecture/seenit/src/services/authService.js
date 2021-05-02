@@ -21,9 +21,7 @@ const authService = {
     log_out(){
         localStorage.clear();
         AuthState.reset();
-        console.log(AuthState.auth)
         NotificationService.showMessage(message(types.loading,constants.logout));
-
     },
 
     validate(res, email) {

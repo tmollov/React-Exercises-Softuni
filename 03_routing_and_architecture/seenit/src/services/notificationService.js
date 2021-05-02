@@ -4,7 +4,6 @@ const notify = {
     duration:3000,
     type:null,
     showMessage(msg) {
-        console.log(msg)
         NotifState.add(msg);
         this.hideNotif();
     },
