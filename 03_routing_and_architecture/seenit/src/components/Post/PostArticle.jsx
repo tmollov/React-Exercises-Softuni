@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import PostContent from "../Post/PostContent";
 import PostThumbnail from "../Post/PostThumbnail";
 
-export default class PostArtichle extends Component {
+export default class PostArticle extends Component {
   render() {
     return (
       <article className="post">
