@@ -1,4 +1,4 @@
-const type = {
+const input_type = {
     url: "url",
     text: "text",
     submit: "submit",
@@ -12,7 +12,7 @@ const name = {
     image: "image",
     comment: "comment",
     password: "password",
-    repeat_password: "repeatPass",
+    repeat_password: "repeat_password",
     email: "email"
 }
 
@@ -20,13 +20,18 @@ const labels = {
     submit: "Submit",
     sign_in:"Sign In",
     sign_up:"Sign Up",
-    link_url: "Link URL:",
-    link_title: "Link Title:",
-    link_thumnail: "Link Thumbnail Image (optional):",
+    link_url: "Image URL:",
+    link_title: "Title:",
+    link_thumnail: "Thumbnail Image (optional):",
     link_comment: "Comment (optional):",
     email:"Email:",
     password:"Password:",
     repeat_password:"Repeat Password:"
 }
 
-export { type, name, labels }
+const min = {
+    password: 6
+}
+
+
+export { input_type, name, labels, min }
