@@ -1,27 +1,30 @@
 import React from 'react';
 import InputArea from '../components/common/InputArea';
 import TextArea from '../components/common/TextArea';
-import { type } from './input_constants';
+import {type} from './input_constants';
 
 const Inputs = {
-    getInput: (label, name, type, change) => {
+    getInput: (label, name, type, value, change, required) => {
         return <InputArea
             label={label}
             name={name}
             type={type}
-            change={change} />
+            change={change}
+            value={value}
+            required={required}
+        />
     },
     getTextArea: (label, name, change) => {
         return <TextArea
             label={label}
             name={name}
-            change={change} />
+            change={change}/>
     },
     getSubmitInput: (id, text, submit) => {
-        return <input id={id} 
-            value={text} 
-            type={type.submit}
-            onClick={submit} />
+        return <input id={id}
+                      value={text}
+                      type={type.submit}
+                      onClick={submit}/>
     }
 }
 
