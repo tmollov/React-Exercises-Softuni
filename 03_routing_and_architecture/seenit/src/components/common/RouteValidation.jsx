@@ -6,7 +6,6 @@ import links from '../../commons/link_constants'
 
 const routes = {
     tryRedirect: () => {
-        console.log(AuthState);
         if (AuthState.auth.jwt === null) {
             return <Redirect to={links.home} />
         }
