@@ -1,13 +1,13 @@
 import AuthState from '../adapters/authState';
 import {fetcher, endpoints} from '../adapters/fetcher';
 import NotificationService from "./notificationService";
-import {message, types, constants} from "../commons/notification_helper";
+import { types, messages} from "../commons/notification_constants";
 
 
 const authService = {
     sign_in(email, password) {
         let data = {email, password};
-        NotificationService.showMessage(types.loading,constants.loading)
+        NotificationService.showMessage(types.loading,messages.loading)
         return fetcher.post(endpoints.login, data, (res) => {
             this.validate(res, email);
         })
@@ -21,15 +21,16 @@ const authService = {
     log_out(){
         localStorage.clear();
         AuthState.reset();
-        NotificationService.showMessage(message(types.loading,constants.logout));
+        NotificationService.showMessage(types.loading,messages.logout);
     },
 
     validate(res, email) {
         if (res.hasOwnProperty('accessToken')) {
             AuthState.set_auth(res.accessToken, email);
-            NotificationService.showMessage(message(types.info,"Signed In!"));
+            NotificationService.showMessage(types.info, messages.signed);
         } else {
-            NotificationService.showMessage(message(types.error,res));
+            NotificationService.showMessage(types.error,res);
+            return false;
         }
     }
 }

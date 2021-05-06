@@ -1,23 +1,20 @@
 import NotifState from "../adapters/notificationState";
 
 const notify = {
-    duration:3000,
-    type:null,
-    showMessage(msg) {
-        NotifState.add(msg);
+    duration: 3000,
+    type: null,
+    showMessage(type, content) {
+        NotifState.add({type: type, content: content});
         this.hideNotif();
     },
-    isAnyNotifications(){
-        if (NotifState.msg === null){
-            return false;
-        }
-        return true;
+    isAnyNotifications() {
+        return NotifState.msg !== null;
     },
-    hideNotif(){
+    hideNotif() {
         setTimeout(() => {
             NotifState.reset();
-        },this.duration)
+        }, this.duration)
     }
 }
 
-export  default notify;
+export default notify;
