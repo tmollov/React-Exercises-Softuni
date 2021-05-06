@@ -3,6 +3,10 @@ const BASE_URL = 'http://localhost:3004';
 const endpoints = {
     login: "/login",
     register: "/register",
+    posts: "/posts",
+    post: function (id) {
+        return `${this.posts}/${id}`
+    }
 }
 
 const fetcher = {
@@ -26,7 +30,9 @@ const fetcher = {
         return fetch(BASE_URL + endpoint, request, callback)
             .then(data => data.json())
             .then(callback)
-            .catch(console.log);
+            .catch((err) => {
+                return err
+            });
     }
 }
 
