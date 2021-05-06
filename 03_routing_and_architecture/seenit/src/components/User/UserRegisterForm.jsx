@@ -1,15 +1,60 @@
 import React from 'react'
-import Inputs from '../../commons/Inputs';
-import { labels, name, type } from '../../commons/input_constants';
+import {labels, input_name, input_type} from '../../commons/input_constants';
+import {useFormik} from "formik";
+import InputArea from "../common/InputArea";
+import ValidationService from "../../services/validationService";
+import authService from "../../services/authService";
 
-export default function UserRegisterForm({change,submit,isSame}) {
+const validate = ValidationService.register_form_validator;
+
+export default function UserRegisterForm() {
+    const f = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+            repeat_password: ''
+        },
+        validate,
+        onSubmit: values => {
+            authService.sign_up(values.email, values.password);
+        }
+    });
+
     return (
-        <form id="registerForm">
+        <form id="registerForm" onSubmit={f.handleSubmit}>
             <h2>Sign Up</h2>
-            {Inputs.getInput(labels.email, name.email, type.text, change)}
-            {Inputs.getInput(labels.password, name.password, type.password, change)}
-            {Inputs.getInput(labels.repeat_password, name.repeat_password, type.password, isSame)}
-            {Inputs.getSubmitInput("btnRegister", labels.sign_up, submit)}
+
+            <InputArea
+                label={labels.email}
+                name={input_name.email}
+                type={input_type.email}
+                change={f.handleChange}
+                value={f.values.email}
+                errors={f.errors.email}
+                required={true}
+            />
+
+            <InputArea
+                label={labels.password}
+                name={input_name.password}
+                type={input_type.password}
+                change={f.handleChange}
+                value={f.values.password}
+                errors={f.errors.password}
+                required={true}
+            />
+
+            <InputArea
+                label={labels.repeat_password}
+                name={input_name.repeat_password}
+                type={input_type.password}
+                change={f.handleChange}
+                value={f.values.repeat_password}
+                errors={f.errors.repeat_password}
+                required={true}
+            />
+
+            <button id="btnRegister" type="submit">{labels.sign_in}</button>
         </form>
     );
 }

@@ -1,14 +1,52 @@
 import React from 'react'
-import Inputs from '../../commons/Inputs';
-import { labels, name, type } from '../../commons/input_constants';
+import {labels, input_name, input_type} from '../../commons/input_constants';
+import InputArea from "../common/InputArea";
+import {useFormik} from 'formik'
+import ValidationService from "../../services/validationService";
+import authService from "../../services/authService";
 
-export default function UserLoginForm({change,submit}) {
+const validate = ValidationService.login_form_validator;
+
+export default function UserLoginForm() {
+    const f = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        validate,
+        onSubmit: values => {
+            authService.sign_in(values.email,values.password)
+        }
+    });
+
     return (
-        <form id="loginForm">
-            <h2>Sign In</h2>
-            {Inputs.getInput(labels.email, name.email, type.email, change)}
-            {Inputs.getInput(labels.password, name.password, type.password, change)}
-            {Inputs.getSubmitInput("btnLogin", labels.sign_in, submit)}
+        <form id="loginForm" onSubmit={f.handleSubmit}>
+            <h2>Sign Up</h2>
+
+            <InputArea
+                label={labels.email}
+                name={input_name.email}
+                type={input_type.email}
+                change={f.handleChange}
+                value={f.values.email}
+                required={true}
+                errors={f.errors.email}
+            />
+
+            <InputArea
+                label={labels.password}
+                name={input_name.password}
+                type={input_type.password}
+                change={f.handleChange}
+                value={f.values.password}
+                errors={f.errors.password}
+                required={true}
+            />
+
+            <input id="btnLogin"
+                   type={input_type.submit}
+                   value={labels.sign_in}
+            />
         </form>
-    )
+    );
 }
