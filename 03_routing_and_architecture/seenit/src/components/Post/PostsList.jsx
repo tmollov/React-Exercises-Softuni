@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PostArticle from "./PostArticle";
 import PostService from "../../services/postService";
+import NoPosts from "./NoPosts";
 
 export default class PostsList extends Component {
     constructor(props) {
@@ -15,6 +16,10 @@ export default class PostsList extends Component {
     }
 
     showArticles = () => {
+        if (this.state.posts.length === 0) {
+            return <NoPosts/>
+        }
+
         let arr = [];
         for (let i = 0; i < this.state.posts.length; i++) {
             arr.push(<PostArticle key={i} post={this.state.posts[i]}/>)

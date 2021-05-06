@@ -34,7 +34,7 @@ footer {
 }
 
 #viewWelcome, #viewCatalog, #viewSubmit, #viewMyPosts, #viewEdit, #viewComments {
-    background:#fff;
+    background: #fff;
 }
 
 .welcome {
@@ -44,7 +44,7 @@ footer {
     padding: 20px;
 }
 
-.welcome>* {
+.welcome > * {
     vertical-align: top;
     overflow: auto;
 }
@@ -70,7 +70,7 @@ footer {
     position: relative;
 }
 
-#loginForm>* {
+#loginForm > * {
     width: 250px;
     box-sizing: border-box;
 }
@@ -84,7 +84,7 @@ footer {
     position: relative;
 }
 
-#registerForm>* {
+#registerForm > * {
     width: 250px;
     box-sizing: border-box;
 }
@@ -98,7 +98,17 @@ footer {
 .capitalize {
     text-transform: capitalize;
 }
+
 .invalid_input {
-    color:red;
+    color: red;
     margin-bottom: .2em;
+}
+
+.no-posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    text-align: center;
+    height: 200px;
 }
