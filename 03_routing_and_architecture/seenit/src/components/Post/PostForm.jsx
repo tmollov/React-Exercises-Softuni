@@ -21,7 +21,7 @@ class PostForm extends Component {
     }
 
     showEdit = () => {
-        if (Object.values(this.state).length > 4){
+        if (Object.values(this.state).length > 4) {
             return <PostEditForm post={this.state} {...this.props}/>
         }
     }
