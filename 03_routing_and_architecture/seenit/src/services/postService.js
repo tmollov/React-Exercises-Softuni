@@ -6,6 +6,7 @@ import {endpoints, fetcher} from "../adapters/fetcher";
 
 const PostService = {
     add_post(post) {
+        console.log(post)
         if (!ValidationService.validate_post(post)) {
             notificationService.showMessage(types.error,messages.invalid_post);
         }
@@ -13,7 +14,7 @@ const PostService = {
 
         post.title = post.title.trim();
         post.url = post.url.trim();
-        post.image = post.image.trim();
+        post.thumbnail = post.thumbnail.trim();
         post.comment = post.comment.trim();
 
         post.author = AuthState.auth.username;
