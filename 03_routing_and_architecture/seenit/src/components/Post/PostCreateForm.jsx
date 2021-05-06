@@ -1,24 +1,95 @@
-import React, { Component } from 'react'
-import Inputs from '../../commons/Inputs';
+import {input_type, input_name, labels} from '../../commons/input_constants';
+import links from "../../commons/link_constants";
 
-import { type, name, labels } from '../../commons/input_constants';
+import React, {useState} from 'react'
+import {Redirect} from 'react-router-dom';
+import {useFormik} from "formik";
+import InputArea from "../common/InputArea";
+import TextArea from "../common/TextArea";
+import ValidationService from "../../services/validationService";
+import PostService from "../../services/postService";
+import {routes} from "../common/RouteValidation";
 
-export default class PostCreateForm extends Component {
-    render() {
-        return (
+const validate = ValidationService.submit_form_validation;
+
+export default function PostCreateForm() {
+    const [id, setId] = useState(null);
+
+    const f = useFormik({
+        initialValues: {
+            title: '',
+            url: '',
+            thumbnail: '',
+            comment: ''
+        },
+        validate,
+        onSubmit: values => {
+            PostService.add_post(values).then((id) => {
+                setId(id);
+            });
+        }
+    });
+
+    const startRedirect = () => {
+        if (id !== null) {
+            return <Redirect to={links.to_post(id)}/>
+        }
+    }
+
+    return (
+        <section id="viewSubmit">
+            {routes.tryRedirect()}
+
+            <div className="submitArea">
+                <h1>Submit Link</h1>
+                <p>Please, fill out the form. A thumbnail image & comment is not required.</p>
+            </div>
+
             <div className="submitArea formContainer">
-                <form id="submitForm" className="submitForm">
+                {startRedirect()}
 
-                    {Inputs.getInput(labels.link_url, name.url, type.url, this.props.change)}
-                    {Inputs.getInput(labels.link_title, name.title, type.text, this.props.change)}
-                    {Inputs.getInput(labels.link_thumnail, name.image, type.url, this.props.change)}
+                <form id="submitForm" className="submitForm" onSubmit={f.handleSubmit}>
 
-                    {Inputs.getTextArea(labels.link_comment, name.comment, this.props.change)}
+                    <InputArea
+                        label={labels.link_title}
+                        name={input_name.title}
+                        type={input_type.text}
+                        change={f.handleChange}
+                        value={f.values.title}
+                        errors={f.errors.title}
+                        required={true}
+                    />
 
-                    {Inputs.getSubmitInput("btnSubmitPost", labels.submit, this.props.submit)}
+                    <InputArea
+                        label={labels.link_url}
+                        name={input_name.url}
+                        type={input_type.url}
+                        change={f.handleChange}
+                        value={f.values.url}
+                        errors={f.errors.url}
+                        required={true}
+                    />
 
+                    <InputArea
+                        label={labels.link_thumbnail}
+                        name={input_name.thumbnail}
+                        type={input_type.url}
+                        change={f.handleChange}
+                        value={f.values.thumbnail}
+                        errors={f.errors.image}
+                    />
+
+                    <TextArea
+                        label={labels.link_comment}
+                        name={input_name.comment}
+                        change={f.handleChange}
+                    />
+
+                    <input type={input_type.submit} value={labels.submit}></input>
                 </form>
             </div>
-        )
-    }
+        </section>
+
+
+    );
 }
