@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route, Link, Redirect} from 'react-router-dom';
 
 import links from './commons/link_constants';
 
@@ -17,6 +17,7 @@ import PostCreateForm from "./components/Post/PostCreateForm";
 import PostForm from "./components/Post/PostForm";
 import WithAuth from "./hocs/withAuth";
 import authService from "./services/authService";
+import PostDetail from "./components/Post/PostDetail";
 
 class App extends Component {
     componentDidMount = () => {
@@ -63,7 +64,9 @@ class App extends Component {
                         <Route path={links.my_posts} component={WithAuth(MyPosts)}/>
                         <Route path={links.submit} component={WithAuth(PostCreateForm)}/>
 
-                        <Route path={links.post} component={WithAuth(PostForm)}/>
+                        <Route path={links.post_detail} component={WithAuth(PostDetail)}/>
+                        <Route path={links.edit_post} component={WithAuth(PostForm)}/>
+                        <Redirect to="/"/>
                     </Switch>
 
                     <Footer/>
