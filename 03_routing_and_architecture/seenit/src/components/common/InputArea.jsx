@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function InputArea({label,name,type,change,errors}) {
+export default function InputArea(props) {
     return (
         <div>
-            <label>{label}</label>
-            <input name={name} type={type} onChange={change}/>
-            {errors ? <span className="invalid_input">{errors}</span> : null}
+            <label>{props.label}</label>
+            <input {...props}/>
+            {props.errors ? <span className="invalid_input">{props.errors}</span> : null}
         </div>
     )
 }

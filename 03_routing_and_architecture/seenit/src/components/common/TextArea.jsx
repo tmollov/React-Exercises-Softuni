@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function TextArea({label,name,change,value}) {
+export default function TextArea(props) {
     return (
         <div>
-            <label>{label}</label>
-            <textarea name={name} onChange={change} value={value}></textarea>
+            <label>{props.label}</label>
+            <textarea {...props}></textarea>
         </div>
     )
 }
