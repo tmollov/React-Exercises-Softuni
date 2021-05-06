@@ -6,10 +6,10 @@ const input_type = {
     password: "password"
 }
 
-const name = {
+const input_name = {
     url: "url",
     title: "title",
-    image: "image",
+    thumbnail: "thumbnail",
     comment: "comment",
     password: "password",
     repeat_password: "repeat_password",
@@ -20,13 +20,14 @@ const labels = {
     submit: "Submit",
     sign_in:"Sign In",
     sign_up:"Sign Up",
-    link_url: "Image URL:",
+    link_url: "Link URL:",
     link_title: "Title:",
-    link_thumnail: "Thumbnail Image (optional):",
+    link_thumbnail: "Thumbnail Image (optional):",
     link_comment: "Comment (optional):",
     email:"Email:",
     password:"Password:",
-    repeat_password:"Repeat Password:"
+    repeat_password:"Repeat Password:",
+    edit_post:"Edit Post"
 }
 
 const min = {
@@ -34,4 +35,4 @@ const min = {
 }
 
 
-export { input_type, name, labels, min }
+export { input_type, input_name, labels, min }

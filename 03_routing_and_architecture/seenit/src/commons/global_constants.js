@@ -1,5 +1,12 @@
 const capitalized = {
-    password: "Password"
+    password: "Password",
+    https:"HTTPS://",
+    http:"HTTP://"
+}
+
+const protocols = {
+    https:"https://",
+    http:"http://"
 }
 
 const regexes = {
@@ -9,4 +16,4 @@ const regexes = {
     url:/[https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gi
 }
 
-export {capitalized, regexes}
+export {capitalized, regexes, protocols}
