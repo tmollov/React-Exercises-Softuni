@@ -32,6 +32,10 @@ const authService = {
             NotificationService.showMessage(types.error,res);
             return false;
         }
+    },
+
+    isUserLogged() {
+        return AuthState.auth.jwt !== null;
     }
 }
 
