@@ -15,6 +15,7 @@ import MyPosts from './components/Post/MyPosts';
 import AuthState from './adapters/authState'
 import PostCreateForm from "./components/Post/PostCreateForm";
 import PostForm from "./components/Post/PostForm";
+import WithAuth from "./hocs/withAuth";
 
 class App extends Component {
     componentDidMount = () => {
@@ -59,10 +60,10 @@ class App extends Component {
 
                     <Switch>
                         {this.showHome()}
-                        <Route path={links.myposts} component={MyPosts}/>
-                        <Route path={links.submit} component={PostCreateForm}/>
+                        <Route path={links.my_posts} component={WithAuth(MyPosts)}/>
+                        <Route path={links.submit} component={WithAuth(PostCreateForm)}/>
 
-                        <Route path="/posts/:id" component={PostForm}/>
+                        <Route path={links.post} component={WithAuth(PostForm)}/>
                     </Switch>
 
                     <Footer/>
