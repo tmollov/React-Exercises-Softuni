@@ -16,6 +16,7 @@ import AuthState from './adapters/authState'
 import PostCreateForm from "./components/Post/PostCreateForm";
 import PostForm from "./components/Post/PostForm";
 import WithAuth from "./hocs/withAuth";
+import authService from "./services/authService";
 
 class App extends Component {
     componentDidMount = () => {
@@ -32,19 +33,19 @@ class App extends Component {
     }
 
     showHome = () => {
-        return AuthState.auth.jwt === null ?
+        return authService.isUserLogged() ?
             <Route exact path={links.home} component={WelcomeContainer}/>
             :
             <Route exact path={links.home} component={CatalogContainer}/>;
     }
 
     showMenu = () => {
-        return AuthState.auth.jwt !== null ? (
+        return authService.isUserLogged() ? (
                 <div id="menu">
                     <div className="title">Navigation</div>
                     <Link className="nav" to={links.home}>Catalog</Link>
                     <Link className="nav" to={links.submit}>Submit Link</Link>
-                    <Link className="nav" to={links.myposts}>My Posts</Link>
+                    <Link className="nav" to={links.my_posts}>My Posts</Link>
                 </div>)
             : "";
     }
