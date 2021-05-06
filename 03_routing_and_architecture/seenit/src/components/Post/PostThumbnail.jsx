@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function PostThumbnail({link,imageUrl}) {
+export default function PostThumbnail({id,url,image}) {
   return (
     <div className="col thumbnail">
-      <a href="https://softuni.bg/">
+      <a href={url}>
         <img
-          src="https://yt3.ggpht.com/ytc/AAUvwnhi2k__4KBT00NNzEyAXWvJNT-LkiUSyTnzzJBTjcQ=s900-c-k-c0x00ffffff-no-rj"
-          alt="1"
+          src={image}
+          alt={id}
         />
       </a>
     </div>
