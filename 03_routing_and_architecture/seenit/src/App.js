@@ -34,9 +34,8 @@ class App extends Component {
 
     showHome = () => {
         return authService.isUserLogged() ?
-            <Route exact path={links.home} component={WelcomeContainer}/>
-            :
-            <Route exact path={links.home} component={CatalogContainer}/>;
+            <Route exact path={links.home} component={CatalogContainer}/> :
+            <Route exact path={links.home} component={WelcomeContainer}/>;
     }
 
     showMenu = () => {
