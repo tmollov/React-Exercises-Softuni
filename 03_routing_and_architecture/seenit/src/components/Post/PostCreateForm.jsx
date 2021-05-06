@@ -54,8 +54,8 @@ export default function PostCreateForm() {
                         label={labels.link_title}
                         name={input_name.title}
                         type={input_type.text}
-                        change={f.handleChange}
-                        value={f.values.title}
+                        onChange={f.handleChange}
+                        defaulValue={f.values.title}
                         errors={f.errors.title}
                         required={true}
                     />
@@ -64,8 +64,8 @@ export default function PostCreateForm() {
                         label={labels.link_url}
                         name={input_name.url}
                         type={input_type.url}
-                        change={f.handleChange}
-                        value={f.values.url}
+                        onChange={f.handleChange}
+                        defaulValue={f.values.url}
                         errors={f.errors.url}
                         required={true}
                     />
@@ -74,15 +74,16 @@ export default function PostCreateForm() {
                         label={labels.link_thumbnail}
                         name={input_name.thumbnail}
                         type={input_type.url}
-                        change={f.handleChange}
-                        value={f.values.thumbnail}
+                        onChange={f.handleChange}
+                        defaulValue={f.values.thumbnail}
                         errors={f.errors.image}
                     />
 
                     <TextArea
                         label={labels.link_comment}
                         name={input_name.comment}
-                        change={f.handleChange}
+                        onChange={f.handleChange}
+                        defaulValue={f.values.comment}
                     />
 
                     <input type={input_type.submit} value={labels.submit}></input>

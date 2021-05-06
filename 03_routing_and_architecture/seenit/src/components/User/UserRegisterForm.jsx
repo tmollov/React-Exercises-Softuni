@@ -28,8 +28,8 @@ export default function UserRegisterForm() {
                 label={labels.email}
                 name={input_name.email}
                 type={input_type.email}
-                change={f.handleChange}
-                value={f.values.email}
+                onChange={f.handleChange}
+                defaultValue={f.values.email}
                 errors={f.errors.email}
                 required={true}
             />
@@ -38,8 +38,8 @@ export default function UserRegisterForm() {
                 label={labels.password}
                 name={input_name.password}
                 type={input_type.password}
-                change={f.handleChange}
-                value={f.values.password}
+                onChange={f.handleChange}
+                defaultValue={f.values.password}
                 errors={f.errors.password}
                 required={true}
             />
@@ -48,13 +48,13 @@ export default function UserRegisterForm() {
                 label={labels.repeat_password}
                 name={input_name.repeat_password}
                 type={input_type.password}
-                change={f.handleChange}
-                value={f.values.repeat_password}
+                onChange={f.handleChange}
+                defaultValue={f.values.repeat_password}
                 errors={f.errors.repeat_password}
                 required={true}
             />
 
-            <button id="btnRegister" type="submit">{labels.sign_in}</button>
+            <button id="btnRegister" type={input_type.submit}>{labels.sign_up}</button>
         </form>
     );
 }

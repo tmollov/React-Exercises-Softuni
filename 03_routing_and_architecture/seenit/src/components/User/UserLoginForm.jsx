@@ -15,7 +15,7 @@ export default function UserLoginForm() {
         },
         validate,
         onSubmit: values => {
-            authService.sign_in(values.email,values.password)
+            authService.sign_in(values.email, values.password)
         }
     });
 
@@ -27,8 +27,8 @@ export default function UserLoginForm() {
                 label={labels.email}
                 name={input_name.email}
                 type={input_type.email}
-                change={f.handleChange}
-                value={f.values.email}
+                onChange={f.handleChange}
+                defaultValue={f.values.email}
                 required={true}
                 errors={f.errors.email}
             />
@@ -37,16 +37,13 @@ export default function UserLoginForm() {
                 label={labels.password}
                 name={input_name.password}
                 type={input_type.password}
-                change={f.handleChange}
-                value={f.values.password}
+                onChange={f.handleChange}
+                defaultValue={f.values.password}
                 errors={f.errors.password}
                 required={true}
             />
 
-            <input id="btnLogin"
-                   type={input_type.submit}
-                   value={labels.sign_in}
-            />
+            <button id="btnLogin" type={input_type.submit}>{labels.sign_in}</button>
         </form>
     );
 }
