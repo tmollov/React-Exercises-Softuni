@@ -11,9 +11,10 @@ import WelcomeContainer from './components/Welcome/WelcomeContainer';
 import CatalogContainer from './components/Catalog/CatalogContainer';
 
 import MyPosts from './components/Post/MyPosts';
-import PostCreate from './components/Post/PostCreate';
 
 import AuthState from './adapters/authState'
+import PostCreateForm from "./components/Post/PostCreateForm";
+import PostForm from "./components/Post/PostForm";
 
 class App extends Component {
     componentDidMount = () => {
@@ -51,7 +52,7 @@ class App extends Component {
         return (
             <div>
                 {this.showHeader()}
-                <Notification />
+                <Notification/>
 
                 <div id="content">
                     {this.showMenu()}
@@ -59,7 +60,9 @@ class App extends Component {
                     <Switch>
                         {this.showHome()}
                         <Route path={links.myposts} component={MyPosts}/>
-                        <Route path={links.submit} component={PostCreate}/>
+                        <Route path={links.submit} component={PostCreateForm}/>
+
+                        <Route path="/posts/:id" component={PostForm}/>
                     </Switch>
 
                     <Footer/>
