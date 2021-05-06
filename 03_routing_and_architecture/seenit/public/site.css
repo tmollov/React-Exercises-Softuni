@@ -24,6 +24,10 @@ body {
     overflow: auto;
 }
 
+#content {
+    background: #fff;
+}
+
 footer {
     text-align: center;
     margin: 10px;
@@ -54,7 +58,7 @@ footer {
 
 .signup {
     float: right;
-    width: 200px;
+    max-width: 350px;
 }
 
 #loginForm {
@@ -67,7 +71,7 @@ footer {
 }
 
 #loginForm>* {
-    width: 150px;
+    max-width: 250px;
     box-sizing: border-box;
 }
 
@@ -81,7 +85,7 @@ footer {
 }
 
 #registerForm>* {
-    width: 150px;
+    width: 250px;
     box-sizing: border-box;
 }
 
