@@ -1,6 +1,6 @@
 const links = {
     home: '/',
-    myposts: '/myposts',
+    my_posts: '/myposts',
     submit: "/submit",
     post: '/posts/:id',
     to_post: (id) => {
