@@ -20,9 +20,10 @@ input, label {
     margin-top: 10px;
 }
 
-.submitForm>textarea {
+textarea {
     resize: none;
     height: 9em;
+    width: 100%;
 }
 
 .submitForm>input[type="submit"] {
