@@ -55,7 +55,7 @@ export default function PostCreateForm() {
                         name={input_name.title}
                         type={input_type.text}
                         onChange={f.handleChange}
-                        defaulValue={f.values.title}
+                        defaultValue={f.values.title}
                         errors={f.errors.title}
                         required={true}
                     />
@@ -65,7 +65,7 @@ export default function PostCreateForm() {
                         name={input_name.url}
                         type={input_type.url}
                         onChange={f.handleChange}
-                        defaulValue={f.values.url}
+                        defaultValue={f.values.url}
                         errors={f.errors.url}
                         required={true}
                     />
@@ -75,7 +75,7 @@ export default function PostCreateForm() {
                         name={input_name.thumbnail}
                         type={input_type.url}
                         onChange={f.handleChange}
-                        defaulValue={f.values.thumbnail}
+                        defaultValue={f.values.thumbnail}
                         errors={f.errors.image}
                     />
 
@@ -83,7 +83,7 @@ export default function PostCreateForm() {
                         label={labels.link_comment}
                         name={input_name.comment}
                         onChange={f.handleChange}
-                        defaulValue={f.values.comment}
+                        defaultValue={f.values.comment}
                     />
 
                     <input type={input_type.submit} value={labels.submit}></input>
