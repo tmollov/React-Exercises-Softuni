@@ -31,7 +31,7 @@ export default function PostContent({id, title, author, date}) {
                     </a>
                 </li>
                 {AuthState.auth.username === author ? (<li className="action">
-                    <a className="editLink" href={links.to_post(id)}>
+                    <a className="editLink" href={links.to_edit_post(id)}>
                         edit
                     </a>
                 </li>) : null}
