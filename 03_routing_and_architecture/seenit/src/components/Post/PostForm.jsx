@@ -15,7 +15,7 @@ class PostForm extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.id;
-        PostService.get_post(id).then((res) => {
+        PostService.get_post_for_edit(id).then((res) => {
             this.setState(res);
         })
     }
