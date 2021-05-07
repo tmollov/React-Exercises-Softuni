@@ -2,11 +2,12 @@ const messages = {
     loading: "Loading...",
     logout: "Logged out!",
     passwords_not_match: "Passwords doesn't match",
-    signed:"Signed In!",
+    signed: "Signed In!",
 
     invalid_post: "Post is invalid!",
     uploading_post: "Uploading post...",
-    post_uploaded: "Post created."
+    post_uploaded: "Post created.",
+    post_updated: "Post updated."
 }
 
 const types = {
@@ -15,4 +16,4 @@ const types = {
     loading: "loading"
 }
 
-export { types, messages}
+export {types, messages}
