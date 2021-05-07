@@ -1,13 +1,13 @@
 import AuthState from '../adapters/authState';
 import {fetcher, endpoints} from '../adapters/fetcher';
 import NotificationService from "./notificationService";
-import { types, messages} from "../commons/notification_constants";
+import {types, messages} from "../commons/notification_constants";
 
 
 const authService = {
     sign_in(email, password) {
         let data = {email, password};
-        NotificationService.showMessage(types.loading,messages.loading)
+        NotificationService.showMessage(types.loading, messages.loading)
         return fetcher.post(endpoints.login, data, (res) => {
             this.validate(res, email);
         })
@@ -18,10 +18,10 @@ const authService = {
             this.validate(res, email)
         })
     },
-    log_out(){
+    log_out() {
         localStorage.clear();
         AuthState.reset();
-        NotificationService.showMessage(types.loading,messages.logout);
+        NotificationService.showMessage(types.loading, messages.logout);
     },
 
     validate(res, email) {
@@ -29,13 +29,15 @@ const authService = {
             AuthState.set_auth(res.accessToken, email);
             NotificationService.showMessage(types.info, messages.signed);
         } else {
-            NotificationService.showMessage(types.error,res);
+            NotificationService.showMessage(types.error, res);
             return false;
         }
     },
 
-    isUserLogged() {
-        return AuthState.auth.jwt !== null;
+    isUserLogged: AuthState.auth.jwt !== null,
+
+    isUserCreator: (author) => {
+        return AuthState.auth.username === author ? true : false
     }
 }
 
