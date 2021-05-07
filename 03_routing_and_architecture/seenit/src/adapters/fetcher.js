@@ -6,6 +6,9 @@ const endpoints = {
     posts: "/posts",
     post: function (id) {
         return `${this.posts}/${id}`
+    },
+    edit_post: function (id) {
+        return `${this.posts}/edit/${id}`
     }
 }
 
