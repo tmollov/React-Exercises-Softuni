@@ -8,7 +8,6 @@ import InputArea from "../common/InputArea";
 import TextArea from "../common/TextArea";
 import ValidationService from "../../services/validationService";
 import PostService from "../../services/postService";
-import {routes} from "../common/RouteValidation";
 
 const validate = ValidationService.submit_form_validation;
 
@@ -38,7 +37,6 @@ export default function PostCreateForm() {
 
     return (
         <section id="viewSubmit">
-            {routes.tryRedirect()}
 
             <div className="submitArea">
                 <h1>Submit Link</h1>
