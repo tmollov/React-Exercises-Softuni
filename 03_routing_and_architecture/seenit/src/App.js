@@ -17,7 +17,7 @@ import PostCreateForm from "./components/Post/PostCreateForm";
 import PostForm from "./components/Post/PostForm";
 import WithAuth from "./hocs/withAuth";
 import authService from "./services/authService";
-import PostDetail from "./components/Post/PostDetail";
+import PostDetails from "./components/Post/PostDetails";
 
 class App extends Component {
     componentDidMount = () => {
@@ -64,9 +64,10 @@ class App extends Component {
                         <Route path={links.my_posts} component={WithAuth(MyPosts)}/>
                         <Route path={links.submit} component={WithAuth(PostCreateForm)}/>
 
-                        <Route path={links.post_detail} component={WithAuth(PostDetail)}/>
+
                         <Route path={links.edit_post} component={WithAuth(PostForm)}/>
-                        <Redirect to="/"/>
+                        <Route path={links.post_detail} component={WithAuth(PostDetails)}/>
+                        <Redirect to={links.home}/>
                     </Switch>
                 </div>
 
