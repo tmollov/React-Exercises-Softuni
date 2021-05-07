@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PostArticle from "./PostArticle";
-import PostService from "../../services/postService";
-import NoPosts from "./NoPosts";
+import PostService from "../../../services/postService";
+import NoPosts from "../NoPosts";
 
 export default class PostsList extends Component {
     constructor(props) {
