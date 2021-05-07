@@ -34,13 +34,13 @@ class App extends Component {
     }
 
     showHome = () => {
-        return authService.isUserLogged() ?
+        return authService.isUserLogged ?
             <Route exact path={links.home} component={CatalogContainer}/> :
             <Route exact path={links.home} component={WelcomeContainer}/>;
     }
 
     showMenu = () => {
-        return authService.isUserLogged() ? (
+        return authService.isUserLogged ? (
                 <div id="menu">
                     <div className="title">Navigation</div>
                     <Link className="nav" to={links.home}>Catalog</Link>
