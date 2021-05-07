@@ -2,10 +2,12 @@ import React from "react";
 import AuthState from "../../adapters/authState";
 import links from "../../commons/link_constants";
 
-export default function PostContent({id, title, author, date}) {
+export default function PostContent(props) {
     const getAuthor = (author) => {
-        let parts = author.split("@");
-        return parts[0];
+        if (author) {
+            let parts = author.split("@");
+            return parts[0];
+        }
     }
 
     const getDate = (date) => {
@@ -23,36 +25,44 @@ export default function PostContent({id, title, author, date}) {
     }
 
     const showControls = () => {
-        return (
-            <ul>
+        if (AuthState.auth.username !== props.author) {
+            return (<ul>
                 <li className="action">
-                    <a className="commentsLink" href={links.to_post(id)}>
+                    <a className="commentsLink" href={links.to_post(props.id)}>
                         comments
                     </a>
                 </li>
-                {AuthState.auth.username === author ? (<li className="action">
-                    <a className="editLink" href={links.to_edit_post(id)}>
-                        edit
-                    </a>
-                </li>) : null}
+            </ul>);
+        }
+        return (<ul>
+            <li className="action">
+                <a className="commentsLink" href={links.to_post(props.id)}>
+                    comments
+                </a>
+            </li>
 
-                {AuthState.auth.username === author ? (<li className="action">
-                    <a className="deleteLink" href={links.to_post(id)}>
-                        delete
-                    </a>
-                </li>) : null}
+            {AuthState.auth.username === props.author ? (<li className="action">
+                <a className="editLink" href={links.to_edit_post(props.id)}>
+                    edit
+                </a>
+            </li>) : null}
 
-            </ul>
-        )
+            {AuthState.auth.username === props.author ? (<li className="action">
+                <a className="deleteLink" href={links.to_post(props.id)}>
+                    delete
+                </a>
+            </li>) : null}
+
+        </ul>);
     }
 
     return (
         <div className="post-content">
             <div className="title">
-                <a href="https://softuni.bg/">{title}</a>
+                <a href="https://softuni.bg/">{props.title}</a>
             </div>
             <div className="details">
-                <div className="info">submitted {getDate(date)} ago by {getAuthor(author)}</div>
+                <div className="info">submitted {getDate(props.date)} ago by {getAuthor(props.author)}</div>
                 <div className="controls">
                     {showControls()}
                 </div>
