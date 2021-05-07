@@ -1,25 +1,38 @@
 import {input_type, input_name, labels} from '../../commons/input_constants';
 
-import React from 'react'
+import React, {useState} from 'react'
 import {useFormik} from "formik";
 import InputArea from "../common/InputArea";
 import TextArea from "../common/TextArea";
 import ValidationService from "../../services/validationService";
+import PostService from "../../services/postService";
+import {Redirect} from "react-router-dom";
+import links from "../../commons/link_constants";
 
 const validate = ValidationService.submit_form_validation;
 
 export default function PostEditForm({post}) {
+    const [id, setId] = useState(null);
     const f = useFormik({
-        enableReinitialize:true,
-        initialValues:post,
+        enableReinitialize: true,
+        initialValues: post,
         validate,
         onSubmit: values => {
-            console.log(values);
+            PostService.update_post(values).then((res) => {
+                setId(res.id)
+            });
         }
     });
 
+    const tryRedirect = () => {
+        if (id !== null) {
+            return <Redirect to={links.to_post(id)}/>
+        }
+    }
+
     return (
         <div className="submitArea formContainer">
+            {tryRedirect()}
 
             <form id="submitForm" className="submitForm" onSubmit={f.handleSubmit}>
 
