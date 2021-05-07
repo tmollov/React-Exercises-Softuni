@@ -68,9 +68,9 @@ class App extends Component {
                         <Route path={links.edit_post} component={WithAuth(PostForm)}/>
                         <Redirect to="/"/>
                     </Switch>
-
-                    <Footer/>
                 </div>
+
+                <Footer/>
             </div>
 
         );

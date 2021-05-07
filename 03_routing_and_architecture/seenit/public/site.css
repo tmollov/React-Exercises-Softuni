@@ -15,11 +15,8 @@ body {
     background: #dddddd;
 }
 
-#container {
-    margin: 10px;
-}
-
 .content {
+    margin: 10px;
     background: #ffffff;
     overflow: auto;
 }
@@ -29,8 +26,13 @@ body {
 }
 
 footer {
+    background-color: white;
     text-align: center;
-    margin: 10px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #viewWelcome, #viewCatalog, #viewSubmit, #viewMyPosts, #viewEdit, #viewComments {
