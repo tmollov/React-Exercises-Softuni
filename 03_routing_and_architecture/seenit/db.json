@@ -1,6 +1,64 @@
 {
-  "posts": [],
-  "nicknames": [],
+  "posts": [
+    {
+      "title": "CHANGED YEAP IT IS WORKING111111",
+      "url": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "image": "",
+      "comment": "Just testing stuff,,..,",
+      "thumbnail": "",
+      "author": "tmollov@mail.com",
+      "date": "2021-05-06T21:19:23.399Z",
+      "id": 3
+    },
+    {
+      "title": "Another great idea121",
+      "url": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "image": "",
+      "comment": "",
+      "thumbnail": "",
+      "author": "tmollov@mail.com",
+      "date": "2021-05-07T09:00:44.823Z",
+      "id": 4
+    },
+    {
+      "title": "Отличен продукт! Препоръчвам! 34543",
+      "url": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "image": "",
+      "comment": "&lt;script&gt;console.log(&quot;nice&quot;)&lt;/script&gt;",
+      "thumbnail": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "author": "tmollov@mail.com",
+      "date": "2021-05-07T09:00:58.545Z",
+      "id": 5
+    },
+    {
+      "title": "TestIdeaEDITED73452342423",
+      "url": "https://www.facebook.com/1906562366055554/videos/343185283420856/?__cft__[0]=AZWRGyF2wkPfHMYII6BfNTwqHo2F2bprmNg69dNIQ1hfDs_LKdfnKuhDyRh7cvMBZUPPmgKjVXO9wjoBWCEnJqEf7e3PoSpI1gnqaimrQ6kJhA5mz_tb_09v-ruJnvMci_DRUKMyS4uiuQKk5Fys8O7fLWMqzCMEYNJawhyHCT0XlmfXFrNCEYEToKb2KX07uog",
+      "image": "",
+      "comment": "sadasd",
+      "thumbnail": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "author": "tmollov@mail.com",
+      "date": "2021-05-07T09:01:09.475Z",
+      "id": 6
+    },
+    {
+      "title": "Another great idea",
+      "url": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "thumbnail": "",
+      "comment": "",
+      "author": "tmollov@mail.com",
+      "date": "2021-05-07T09:02:39.454Z",
+      "id": 7
+    },
+    {
+      "title": "test for req",
+      "url": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
+      "thumbnail": "",
+      "comment": "",
+      "author": "tmollov@mail.com",
+      "date": "2021-05-07T16:15:52.837Z",
+      "id": 8
+    }
+  ],
   "users": [
     {
       "password": "$2a$10$dHCUwzsIX2WOu7KXNwxISOiZSaiENuVUvBULLienoEcCV5dkZwiRK",
@@ -11,6 +69,11 @@
       "email": "graculapsone1998@gmail.com",
       "password": "$2a$10$jnlGYL0Y5oUA/kuU/ErOAeWhPCaq7Le2iSuMGm0oK8NOUzNOBMgpG",
       "id": 2
+    },
+    {
+      "email": "mollov@gmail.com",
+      "password": "$2a$10$CzqmA/hAOCfe.VIcxYqDVOh6HMvZNf3uNaHuxdteBJ/s4npqvpBCS",
+      "id": 3
     }
   ]
 }
