@@ -9,12 +9,7 @@ const AuthState = {
     set_auth(jwt, username) {
         localStorage.setItem("jwt", jwt);
         localStorage.setItem("username", username);
-        this.update_auth();
-    },
-    update_auth() {
-        this.auth.jwt = localStorage.getItem("jwt");
-        this.auth.username = localStorage.getItem("username");
-        this.update();
+        this.reset();
     },
     reset() {
         this.auth = {
