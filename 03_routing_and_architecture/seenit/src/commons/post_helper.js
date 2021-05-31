@@ -66,5 +66,15 @@ function get_controls(id, author, show_comments) {
     return detail_controls(id);
 }
 
+function normalizeComment(safe) {
+    if (safe) {
+        return safe
+            .replace(/&amp;/g, "&")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
+            .replace(/&quot;/g, `"`)
+            .replace(/&#039;/g, "'");
+    }
+}
 
-export {format_date, format_author, get_controls}
+export {format_date, format_author, get_controls, normalizeComment}
