@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import NotifState from "../../adapters/notificationState";
 import authService from "../../services/authService";
+import AuthState from "../../adapters/authState";
 
 export default class Header extends Component {
     componentDidMount() {
@@ -11,11 +12,9 @@ export default class Header extends Component {
     }
 
     showProfile = () => {
-        let p = this.props;
-
-        return p.username ? (
+        return authService.isUserLogged ? (
             <div id="profile">
-                <span>{p.username}</span>|<a href="#/logout" onClick={this.logout}>logout</a>
+                <span>{AuthState.auth.username}</span>|<a href="#logout" onClick={this.logout}>logout</a>
             </div>
         ) : (
             ""
@@ -30,6 +29,7 @@ export default class Header extends Component {
     render() {
         return (
             <header>
+
                 <span className="logo">☃</span>
                 <span className="header">SeenIt</span>
 
