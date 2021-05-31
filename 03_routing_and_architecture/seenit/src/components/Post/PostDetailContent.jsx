@@ -1,5 +1,5 @@
 import React from 'react';
-import {format_author, format_date} from "../../commons/post_helper";
+import {format_author, format_date, normalizeComment} from "../../commons/post_helper";
 
 function PostDetailContent({data, controls}) {
     return (
@@ -10,7 +10,7 @@ function PostDetailContent({data, controls}) {
                 </a>
             </div>
             <div className="details">
-                <p>{data.comment}</p>
+                <p>{normalizeComment(data.comment)}</p>
                 <div className="info">
                     submitted {format_date(data.date)} ago by {format_author(data.author)}
                 </div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PostService from "../../services/postService";
 import PostEditForm from "./PostEditForm";
+import {normalizeComment} from "../../commons/post_helper";
 
 class PostForm extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class PostForm extends Component {
     componentDidMount() {
         let id = this.props.match.params.id;
         PostService.get_post_for_edit(id).then((res) => {
+            res.comment = normalizeComment(res.comment);
             this.setState(res);
         })
     }
