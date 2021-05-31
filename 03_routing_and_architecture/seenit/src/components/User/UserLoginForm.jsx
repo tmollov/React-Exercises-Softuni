@@ -15,7 +15,7 @@ export default function UserLoginForm() {
         },
         validate,
         onSubmit: values => {
-            authService.sign_in(values.email, values.password)
+            authService.log_in(values.email, values.password)
         }
     });
 

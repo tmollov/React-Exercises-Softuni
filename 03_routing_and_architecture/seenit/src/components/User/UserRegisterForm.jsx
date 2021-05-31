@@ -16,7 +16,7 @@ export default function UserRegisterForm() {
         },
         validate,
         onSubmit: values => {
-            authService.sign_up(values.email, values.password);
+            authService.register(values.email, values.password);
         }
     });
 

@@ -5,14 +5,14 @@ import {types, messages} from "../commons/notification_constants";
 
 
 const authService = {
-    sign_in(email, password) {
+    log_in(email, password) {
         let data = {email, password};
         NotificationService.showMessage(types.loading, messages.loading)
         return fetcher.post(endpoints.login, data, (res) => {
             this.validate(res, email);
         })
     },
-    sign_up(email, password) {
+    register(email, password) {
         let data = {email, password};
         return fetcher.post(endpoints.register, data, (res) => {
             this.validate(res, email)
@@ -21,7 +21,7 @@ const authService = {
     log_out() {
         localStorage.clear();
         AuthState.reset();
-        NotificationService.showMessage(types.loading, messages.logout);
+        NotificationService.showMessage(types.info, messages.logout);
     },
 
     validate(res, email) {
