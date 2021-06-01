@@ -45,6 +45,7 @@ class PostDetails extends Component {
                                    deleteComment={this.removeComment}
             />)
         }
+
         return comm;
     }
 
