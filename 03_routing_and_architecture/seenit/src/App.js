@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {Switch, Route, Link, Redirect} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import AuthState from './adapters/authState'
-import authService from "./services/authService";
 import links from './commons/link_constants';
 
 import Footer from './components/common/Footer';
@@ -28,7 +27,7 @@ class App extends Component {
     }
 
     showHome = () => {
-        return authService.isUserLogged ?
+        return AuthState.auth.jwt !== null ?
             <Route exact path={links.home} component={CatalogContainer}/> :
             <Route exact path={links.home} component={WelcomeContainer}/>;
     }
@@ -40,7 +39,7 @@ class App extends Component {
                 <Notification/>
 
                 <div id="content">
-                    <Menu />
+                    <Menu/>
 
                     <Switch>
                         {this.showHome()}
@@ -50,6 +49,7 @@ class App extends Component {
 
                         <Route path={links.edit_post} component={WithAuth(PostForm)}/>
                         <Route path={links.post_detail} component={WithAuth(PostDetails)}/>
+
                         <Redirect to={links.home}/>
                     </Switch>
                 </div>
