@@ -6,8 +6,8 @@ import authService from "../../../services/authService";
 
 export default function PostContent(props) {
     const post = props.post;
-    const showControls = () => {
 
+    const showControls = () => {
         if (AuthState.auth.username !== post.author) {
             return (<ul>
                 <li className="action">
@@ -29,6 +29,12 @@ export default function PostContent(props) {
                 <a className="editLink" href={links.to_edit_post(post.id)}>
                     edit
                 </a>
+            </li>) : null}
+
+            {authService.isUserCreator(post.author) ? (<li className="action">
+                <button data-id={post.id} className="editLink" onClick={props.delete}>
+                    delete
+                </button>
             </li>) : null}
 
         </ul>);
