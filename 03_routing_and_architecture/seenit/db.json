@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "title": "Another great idea! NOTE: Edited",
+      "title": "My first React SPA",
       "url": "https://res.cloudinary.com/sucimages/iadasdamage/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
       "image": "",
-      "comment": "Imagine this is workin properly and to has 5 out 5 stars!? WOW nice idea\nNOTE: Edited here too.",
+      "comment": "Learning react, to be exact rounting and forms",
       "thumbnail": "https://res.cloudinary.com/sucimages/image/upload/v1545680430/miwoew9vzojkck2zyk0u.jpg",
       "author": "tmollov@mail.com",
       "date": "2021-06-01T12:58:00.217Z",
@@ -26,46 +26,20 @@
       "email": "mollov@gmail.com",
       "password": "$2a$10$CzqmA/hAOCfe.VIcxYqDVOh6HMvZNf3uNaHuxdteBJ/s4npqvpBCS",
       "id": 3
+    },
+    {
+      "email": "tundzhaymollov@gmail.com",
+      "password": "$2a$10$gKNP6UGYv06ww9Z0AoNXGOD8lRCiTrII31bEpCecBjXjC3N8sfNGW",
+      "id": 4
     }
   ],
   "comments": [
     {
-      "id": 1,
       "post_id": 1,
-      "author": "graculapsone1998@gmail.com",
-      "date": "2021-06-01T15:58:00.217Z",
-      "content": "Nice, looking for more ideas from U!"
-    },
-    {
-      "id": 2
-    },
-    {
-      "post_id": 1,
-      "author": "tmollov@mail.com",
-      "date": 1622560277997,
-      "content": "Thanks dude! :)",
-      "id": 3
-    },
-    {
-      "post_id": 1,
-      "author": "tmollov@mail.com",
-      "date": 1622560317708,
-      "content": "asdsadas",
-      "id": 4
-    },
-    {
-      "post_id": 1,
-      "author": "graculapsone1998@gmail.com",
-      "date": 1622560377814,
-      "content": "Good day my friend. And what is that &quot;asdsadas&quot; comment of yours? some magic?",
-      "id": 5
-    },
-    {
-      "post_id": 1,
-      "author": "tmollov@mail.com",
-      "date": 1622561265387,
-      "content": "asdasd",
-      "id": 6
+      "author": "tundzhaymollov@gmail.com",
+      "date": 1622566614047,
+      "content": "Nice, keep it up!",
+      "id": 1
     }
   ]
 }
