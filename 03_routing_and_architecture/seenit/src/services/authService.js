@@ -33,8 +33,6 @@ const authService = {
         }
     },
 
-    isUserLogged: AuthState.auth.jwt !== null,
-
     isUserCreator: (author) => {
         return AuthState.auth.username === author;
     }
