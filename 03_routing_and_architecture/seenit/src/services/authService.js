@@ -30,14 +30,13 @@ const authService = {
             NotificationService.showMessage(types.info, messages.signed);
         } else {
             NotificationService.showMessage(types.error, res);
-            return false;
         }
     },
 
     isUserLogged: AuthState.auth.jwt !== null,
 
     isUserCreator: (author) => {
-        return AuthState.auth.username === author ? true : false
+        return AuthState.auth.username === author;
     }
 }
 
