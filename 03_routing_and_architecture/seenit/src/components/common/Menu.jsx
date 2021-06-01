@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import links from "../../commons/link_constants";
-import authService from "../../services/authService";
+import AuthState from "../../adapters/authState";
 
 function Menu() {
     let showMenu = () => {
-        return authService.isUserLogged ? (
+        return AuthState.auth.jwt !== null ? (
                 <div id="menu">
                     <div className="title">Navigation</div>
                     <Link className="nav" to={links.home}>Catalog</Link>
