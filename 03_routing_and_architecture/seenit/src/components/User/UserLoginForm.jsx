@@ -21,7 +21,7 @@ export default function UserLoginForm() {
 
     return (
         <form id="loginForm" onSubmit={f.handleSubmit}>
-            <h2>Sign Up</h2>
+            <h2>Sign In</h2>
 
             <InputArea
                 label={labels.email}
