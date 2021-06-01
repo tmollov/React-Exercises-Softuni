@@ -9,10 +9,26 @@ export default class PostsList extends Component {
         this.state = {posts: []};
     }
 
+    deleteArticle = (event) => {
+        let targetId = Number(event.target.getAttribute('data-id'));
+        let posts = this.state.posts.filter(x => x.id !== targetId);
+
+        PostService.remove_posts(targetId)
+            .then((res) => {
+                this.setState({posts: posts});
+            });
+    }
+
     componentDidMount = () => {
-        PostService.get_posts().then((res) => {
-            this.setState({posts: res});
-        })
+        if (this.props.myposts) {
+            PostService.get_my_posts().then((res) => {
+                this.setState({posts: res});
+            })
+        } else {
+            PostService.get_posts().then((res) => {
+                this.setState({posts: res});
+            })
+        }
     }
 
     showArticles = () => {
@@ -22,7 +38,7 @@ export default class PostsList extends Component {
 
         let arr = [];
         for (let i = 0; i < this.state.posts.length; i++) {
-            arr.push(<PostArticle key={i} post={this.state.posts[i]}/>)
+            arr.push(<PostArticle key={i} post={this.state.posts[i]} delete={this.deleteArticle}/>)
         }
         return arr;
     }
