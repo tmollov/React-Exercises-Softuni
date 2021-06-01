@@ -1,18 +1,11 @@
 import React, {Component} from "react";
 
-import NotifState from "../../adapters/notificationState";
 import authService from "../../services/authService";
 import AuthState from "../../adapters/authState";
 
 export default class Header extends Component {
-    componentDidMount() {
-        NotifState.listen(() => {
-            this.forceUpdate();
-        })
-    }
-
     showProfile = () => {
-        return authService.isUserLogged ? (
+        return AuthState.auth.jwt !== null ? (
             <div id="profile">
                 <span>{AuthState.auth.username}</span>|<a href="#logout" onClick={this.logout}>logout</a>
             </div>
