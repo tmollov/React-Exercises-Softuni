@@ -4,60 +4,90 @@ import {get_controls} from "../../commons/post_helper";
 import PostDetailContent from "./PostDetailContent";
 import PostThumbnail from "./Catalog/PostThumbnail";
 import authService from "../../services/authService";
+import PostComment from "./PostComment";
 
 class PostDetails extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            post: {},
+            comments: [],
+            my_comment: ""
+        };
     }
 
     componentDidMount() {
         let id = this.props.match.params.id;
         PostService.get_post(id).then((res) => {
-            this.setState(res);
+            this.setState({post: res});
+        })
+
+        PostService.get_comments_for_post(id).then((res) => {
+            this.setState({comments: res})
         })
     }
 
-    showDetails = () => {
-        return (
-            <PostDetailContent data={this.state}
-                               controls={get_controls(this.state.id, this.state.author, authService.isUserCreator)}/>
-        )
+    showComments = () => {
+        let comm = [];
+
+        for (let i = 0; i < this.state.comments.length; i++) {
+            let c = this.state.comments[i];
+            comm.push(<PostComment key={i}
+                                   commentId={c.id}
+                                   content={c.content}
+                                   author={c.author}
+                                   date={c.date}
+                                   deleteComment={this.removeComment}
+            />)
+        }
+        return comm;
+    }
+
+    removeComment = (event) => {
+        event.preventDefault();
+        let commentId = Number(event.target.getAttribute("data-comment-id"));
+        PostService.remove_comment(commentId).then((res) => {
+            let coms = this.state.comments.filter(x => x.id !== commentId);
+            this.setState({comments: coms})
+        })
+    }
+
+    onSubmit = (event) => {
+        event.preventDefault();
+        PostService.add_comment_to_post(this.state.post.id, this.state.my_comment).then((res) => {
+            this.setState({my_comment: ""})
+            PostService.get_comments_for_post(this.state.post.id).then((res) => {
+                this.setState({comments: res})
+            })
+        })
+    }
+
+    onChange = (event) => {
+        this.setState({my_comment: event.target.value});
     }
 
     render() {
         return (
             <section id="viewComments">
                 <div className="post">
-                    <PostThumbnail id={this.state.id} url={this.state.url} image={this.state.thumbnail}/>
-                    {this.showDetails()}
+                    <PostThumbnail id={this.state.post.id} url={this.state.post.url} image={this.state.post.thumbnail}/>
+                    <PostDetailContent data={this.state.post}
+                                       controls={get_controls(this.state.post.id, this.state.post.author, authService.isUserCreator)}/>
                     <div className="clear"></div>
                 </div>
                 <div className="post post-content">
-                    <form id="commentForm">
+                    <form id="commentForm" onSubmit={this.onSubmit}>
                         <label>Comment</label>
-                        <textarea name="content" type="text"></textarea>
+                        <textarea onChange={this.onChange}
+                                  value={this.state.my_comment}
+                                  name="content"
+                                  type="text"
+                                  required></textarea>
                         <input type="submit" value="Add Comment" id="btnPostComment"/>
                     </form>
                 </div>
-                <article className="post post-content">
-                    <p>Thanks, just what I needed.</p>
-                    <div className="info">
-                        submitted 5 days ago by Gosho | <a href={"/"} className="deleteLink">delete</a>
-                    </div>
-                </article>
-                <article className="post post-content">
-                    <p>Tutorial is kinda outdated, but it works.</p>
-                    <div className="info">
-                        submitted 4 days ago by Kiril | <a href={"/"} className="deleteLink">delete</a>
-                    </div>
-                </article>
-                <article className="post post-content">
-                    <p>Beats React any day! So must easier and less boilerplate.</p>
-                    <div className="info">
-                        submitted 3 days ago by Nakov | <a href={"/"} className="deleteLink">delete</a>
-                    </div>
-                </article>
+
+                {this.showComments()}
             </section>
         );
     }
