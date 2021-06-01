@@ -24,6 +24,12 @@ const PostService = {
             return res;
         })
     },
+    get_my_posts() {
+        return fetcher.get(endpoints.my_posts(AuthState.auth.username), (res) => {
+            //notificationService.showMessage(types.info, messages.post_uploaded)
+            return res;
+        })
+    },
     get_post(id) {
         return fetcher.get(endpoints.post(id), (res) => {
             return res;
@@ -60,6 +66,36 @@ const PostService = {
         post = f.trim_post(post);
 
         return fetcher.put(endpoints.post(post.id), post, (res) => {
+            return res;
+        })
+    },
+    remove_posts(id) {
+        return fetcher.delete(endpoints.post(id), (res) => {
+            notificationService.showMessage(types.info, messages.post_removed)
+            return res;
+        })
+    },
+    get_comments_for_post(post_id) {
+        return fetcher.get(endpoints.comments_for_post(post_id), (res) => {
+            return res;
+        })
+    },
+    add_comment_to_post(post_id, content) {
+        let comment = {
+            post_id: post_id,
+            author: AuthState.auth.username,
+            date: Date.now(),
+            content: validators.escapeHtml(content.trim())
+        }
+
+        return fetcher.post(endpoints.comments, comment, (res) => {
+            notificationService.showMessage(types.info, messages.comment_posted)
+            return res
+        })
+    },
+    remove_comment(id) {
+        return fetcher.delete(endpoints.comment(id), (res) => {
+            notificationService.showMessage(types.info, messages.comment_deleted);
             return res;
         })
     }
