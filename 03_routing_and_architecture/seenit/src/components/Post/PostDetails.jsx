@@ -5,6 +5,7 @@ import PostDetailContent from "./PostDetailContent";
 import PostThumbnail from "./Catalog/PostThumbnail";
 import authService from "../../services/authService";
 import PostComment from "./PostComment";
+import links from "../../commons/link_constants";
 
 class PostDetails extends Component {
     constructor(props) {
@@ -19,11 +20,15 @@ class PostDetails extends Component {
     componentDidMount() {
         let id = this.props.match.params.id;
         PostService.get_post(id).then((res) => {
-            this.setState({post: res});
-        })
-
-        PostService.get_comments_for_post(id).then((res) => {
-            this.setState({comments: res})
+            // If there is id save post
+            if (res.id) {
+                this.setState({post: res});
+                PostService.get_comments_for_post(id).then((res) => {
+                    this.setState({comments: res})
+                })
+            } else { // else redirect to home page
+                this.props.history.push(links.home);
+            }
         })
     }
 
