@@ -7,7 +7,7 @@ This folder contains all solved exercises from [``Routing and Architecture``](ht
 ## Installation and usage
 
 1. Clone repository
-2. Open your terminal and change your directory first to 01.pokemons folder:
+2. Open your terminal and change your directory first to 'seenit' folder:
 3. Type ``npm install`` to installation dependencies
 4. You will need to install [json-server-auth](https://www.npmjs.com/package/json-server-auth) by typing: ``npm install -D json-server json-server-auth``
 5. Run ``json-server-auth`` by typing: ``json-server-auth db.json --port 3004 --routes routes.json``
